@@ -76,7 +76,6 @@ system("cls");
                 fflush(stdin);
             }
             }
-//            fgetc(stdin);
             printf("  enter title of book: ");
             fgets(title, 100,stdin);
             if( title[strlen(title)-1] == '\n' )
