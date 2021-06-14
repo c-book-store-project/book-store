@@ -5,4 +5,4 @@ if(f==NULL)
 else{
     fprintf(f,"%d,%s,%s,%s,%d\n",value,book_title,auther_writer,gener_type,year_a);
 }
-}
+ }
