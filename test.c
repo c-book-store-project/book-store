@@ -20,4 +20,4 @@ int test(struct node **head,int val)
     {
         return 1;
     }
-}
+ }
