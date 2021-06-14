@@ -13,6 +13,7 @@ int test(struct node **head,int val)
     }
     if(temp->next==NULL)
     {
+       
         return 0;
     }
     else
