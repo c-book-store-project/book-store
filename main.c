@@ -122,10 +122,11 @@ system("cls");
                     }
                     else printf("\n\n   * ID of number %d is not found *\n\n",id);
                 }
-                else
+                else{
                     delall(&head);
                     delallfile();
                 printf("\n  * all book is deleted *\n");
+                }
                 }
                 else
                     printf("\n\n     * the list is empty *\n");
