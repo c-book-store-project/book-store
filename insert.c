@@ -1,6 +1,8 @@
 void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a)
 {
+    
     struct node *newnode=malloc(sizeof(struct node));
+    
     if (newnode!=NULL)
     {
         newnode->id=value;
