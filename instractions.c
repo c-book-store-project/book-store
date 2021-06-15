@@ -1,8 +1,8 @@
 int instr(void)
 {
-    printf("\n*************\n");
+    printf("\n***************\n");
     printf("*         * Book Data Base *        *\n");
-    printf("*************\n");
+    printf("****************\n");
     printf("%s", "\nEnter your choice\n"
            "   1 - INSERT BOOK DETAILES\n"
            "   2 - SEARCH OF BOOK\n"
@@ -15,3 +15,4 @@ int instr(void)
     scanf("%u", &menuChoice);
     return menuChoice;
 }
+
