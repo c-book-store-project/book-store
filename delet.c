@@ -26,3 +26,4 @@ int delet_id(struct node **head,int value)
         return 1;
     }
 } 
+
