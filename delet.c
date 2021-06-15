@@ -25,4 +25,4 @@ int delet_id(struct node **head,int value)
          delfile(value);
         return 1;
     }
-}
+} 
