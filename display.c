@@ -10,12 +10,16 @@ void display(struct node *head)
     printf("-------------------------------------------------------------------------------------------------------------------\n");
         while(head!=NULL)
         {
+            if(head->number>0){
             printf("\n%-20d %-20s %-20s%-20s%-20d"
                    ,head->id
                    ,head->title
                    ,head->auther_name
                    ,head->gener
                    ,head->year);
+            }
+            else
+                    delfile(head->id);
             head=head->next;
         }
         printf("\n-----------------------------------------------------------------------------------------------------------------");
