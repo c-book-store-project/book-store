@@ -3,6 +3,6 @@ FILE *f=fopen("pop.csv","a+");
 if(f==NULL)
     printf("file not found");
 else{
-    fprintf(f,"%d,%s,%s,%s,%d\n",value,book_title,auther_writer,gener_type,year_a);
+     fprintf(f,"%d,%s,%s,%s,%d,%d,%f\n",value,book_title,auther_writer,gener_type,year_a,num,pric);
 }
 }
