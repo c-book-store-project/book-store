@@ -1,4 +1,4 @@
-void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a)
+void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a, int num, float pric)
 {
     
     struct node *newnode=malloc(sizeof(struct node));
@@ -13,6 +13,8 @@ void insert(struct node **head,int value, char book_title[], char auther_writer[
         newnode->gener=malloc(strlen(gener_type)+1);
         strcpy(newnode->gener,gener_type);
         newnode->year=year_a;
+         newnode->number=num;
+        newnode->price=pric;
         newnode->next=NULL;
         struct node *prev=NULL;
         struct node *current=*head;
