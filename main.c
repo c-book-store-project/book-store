@@ -17,7 +17,6 @@ struct node
 int t;
 void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a, int num, float pric);
 int delet_id(struct node **head,int value);
-int delet_name(struct node **head,char *tit);
 void search(struct node **head,int val);
 void display(struct node *head);
 int test(struct node **head,int val);
@@ -44,7 +43,6 @@ int main()
     char str1[1024];
     FILE *f;
     int n;
-    int i;
     float tot=0.0;
     
     if((f=fopen("pop.csv","r"))==NULL)
@@ -67,7 +65,6 @@ int main()
          ptr=strtok(NULL,",");
          price=atoi(ptr);
          insert(&head,id,title,auther_name,gener,year);
-         i++;
       }
       printf("\n");
       fclose(f);
@@ -82,7 +79,7 @@ system("cls");
             scanf("%d",&id);
     fflush(stdin);
             if(head!=NULL){
-            while(test(&head,id)){
+            while(test(&head,id)==1){
                 printf("  * this ID is used or wrong Please enter another ID: ");
                 scanf("%d",&id);
                 fflush(stdin);
