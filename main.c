@@ -10,21 +10,24 @@ struct node
     char *auther_name;
     char *gener;
     int year;
+    float price;
+    int number;
     struct node *next;
 };
 int t;
-void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a);
+void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a, int num, float pric);
 int delet_id(struct node **head,int value);
 int delet_name(struct node **head,char *tit);
 void search(struct node **head,int val);
 void display(struct node *head);
 int test(struct node **head,int val);
 int instr(void);
-int open(void);
-void write(int value, char book_title[], char auther_writer[], char gener_type[], int year_a);
+void write(int value, char book_title[], char auther_writer[], char gener_type[], int year_a, int num, float pric );
 void delfile(int n);
 void delall(struct node **head);
 void delallfile(void);
+int sell(struct node **head,int value,int n);
+
 int main()
 {
     struct node *head=NULL;
@@ -33,12 +36,17 @@ int main()
     char auther_name[100];
     char gener[50];
     int year;
+    float price;
+    int number;
     int ans;
     int choise;
     char*ptr;
     char str1[1024];
     FILE *f;
+    int n;
     int i;
+    float tot=0.0;
+    
     if((f=fopen("pop.csv","r"))==NULL)
         printf("file not found");
          while(fgets(str1, sizeof str1, f) !=NULL){
@@ -54,13 +62,17 @@ int main()
          strcpy(gener,ptr);
          ptr=strtok(NULL,",");
          year=atoi(ptr);
+         ptr=strtok(NULL,",");
+         number=atoi(ptr);
+         ptr=strtok(NULL,",");
+         price=atoi(ptr);
          insert(&head,id,title,auther_name,gener,year);
          i++;
       }
       printf("\n");
       fclose(f);
      system("pause");
-    while((choise=instr())!=6)
+    while((choise=instr())!=7)
     {
 system("cls");
         switch (choise)
@@ -90,11 +102,16 @@ system("cls");
                 gener[strlen(gener)-1] = 0;
             printf("  enter the year of book publish: ");
             scanf("%d",&year);
+             printf("  Enter Number of book: ");
+            scanf("%d",&number);
+            printf("  Enter the price of book: ");
+            scanf("%f",&price);
             fflush(stdin);
             write(id,title,auther_name,gener,year);
             insert(&head,id,title,auther_name,gener,year);
             printf("\n    * this book is correctly inserted *\n");
             break;
+                
         case 2:
             if(head!=NULL)
             {
@@ -155,6 +172,10 @@ system("cls");
                         gener[strlen(gener)-1] = 0;
                     printf("enter the new year of book publish: ");
                     scanf("%d",&year);
+                     printf("Enter new Number of book: ");
+                    scanf("%d",&number);
+                    printf("Enter new price of book: ");
+                    scanf("%f",&price);
                     write(id,title,auther_name,gener,year);
                     insert(&head,id,title,auther_name,gener,year);
                     printf("\n    * this book is correctly upgrade *\n");
@@ -168,6 +189,21 @@ system("cls");
         case 5:
             display(head);
             break;
+                
+        case 6:
+            if(head!=NULL){
+            printf("  Enter id of sell book press (-1) to end: ");
+            scanf("%d",&id);
+            printf("number of books you want sell: ");
+            scanf("%d",&n);
+            delfile(id);
+            tot=sell(&head,id,n);
+            printf("\n    * total price is %f *\n",tot);
+             }
+            else
+                 printf("\n   * the list is empty *\n");
+            break;
+                
         default:
             printf("invalid choise");
             break;
