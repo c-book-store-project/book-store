@@ -14,7 +14,6 @@ struct node
     int number;
     struct node *next;
 };
-int t;
 void insert(struct node **head,int value, char book_title[], char auther_writer[], char gener_type[], int year_a, int num, float pric);
 int delet_id(struct node **head,int value);
 void search(struct node **head,int val);
@@ -153,7 +152,7 @@ system("cls");
                 if(test(&head,id)==1)
                 {
                     delet_id(&head,id);
-                    delfile(id);
+                   // delfile(id);
                     fgetc(stdin);
                     printf("enter title of book: ");
                     fgets(title, 100,stdin);
