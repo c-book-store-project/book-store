@@ -12,7 +12,7 @@ void search(struct node **head,int val)
         printf("     */ num(books)     -> %d  *\n",(*head)->number);
         printf("     */ price          -> %f  *\n",(*head)->price);
     }
-    temp=*head;
+    else{
     while(temp->next!=NULL && temp->next->id!=val)
     {
         temp=temp->next;
@@ -31,5 +31,6 @@ void search(struct node **head,int val)
         printf("     */ year         -> %d  *\n",temp->next->year);
         printf("     */ gener        -> %s  *\n",temp->next->gener);
         printf("     */ year         -> %d  *\n",temp->next->year);
+    }
     }
 }
